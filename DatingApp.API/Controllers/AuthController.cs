@@ -33,9 +33,9 @@ namespace DatingApp.API.Controllers
         {
             // validate request
 
-           userForRegisterDTO.Username = userForRegisterDTO.Username.ToLower();
+            userForRegisterDTO.Username = userForRegisterDTO.Username.ToLower();
 
-            if(await _repo.UserExist(userForRegisterDTO.Username))
+            if (await _repo.UserExist(userForRegisterDTO.Username))
             {
                 return BadRequest("Username already exists.");
             }
@@ -81,10 +81,10 @@ namespace DatingApp.API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return Ok(new {
+            return Ok(new
+            {
                 token = tokenHandler.WriteToken(token)
             });
-
         }
     }
 }
